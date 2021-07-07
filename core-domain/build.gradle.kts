@@ -37,7 +37,7 @@ publishing {
         create<MavenPublication>("gpr") {
             run {
                 groupId = "com.rocket.core"
-                artifactId = "domain"
+                artifactId = "core-domain"
                 version = "0.0.1"
                 artifact("$buildDir/libs/$artifactId.jar")
             }
