@@ -6,8 +6,8 @@ open class CoreProvider {
         var properties: Map<String, String>? = null
     }
 
+    @Suppress("SwallowedException")
     inline fun <reified T> getPropertyOrNull(key: String): T? {
-        @Suppress("SwallowedException")
         return try {
             val value = properties?.getValue(key)
             when (T::class) {
@@ -17,9 +17,11 @@ open class CoreProvider {
                 Boolean::class -> value?.toBoolean()
                 else -> null
             } as T?
-        }
-        @Suppress("TooGenericExceptionCaught")
-        catch (exception: Exception) {
+        } catch (exception: NoSuchElementException) {
+            null
+        } catch (exception: NumberFormatException) {
+            null
+        } catch (exception: IllegalArgumentException) {
             null
         }
     }
