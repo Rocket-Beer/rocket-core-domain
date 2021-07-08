@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.2.1")
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
         classpath("org.jlleitschuh.gradle:ktlint-gradle:10.1.0")
         classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1")
     }
@@ -18,13 +18,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url = "https://maven.pkg.github.com/Rocket-Beer/rocket-core-domain"
-            credentials {
-                username = getPublisherUsername(rootProject)
-                password = getPublisherPassword(rootProject)
-            }
-        }
     }
 }
 
