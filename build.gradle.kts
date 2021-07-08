@@ -1,4 +1,7 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
+plugins {
+    id("org.gradle.kotlin.kotlin-dsl.precompiled-script-plugins") version "2.1.5" apply false
+}
 
 buildscript {
     repositories {
