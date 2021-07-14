@@ -2,11 +2,10 @@ package com.rocket.core.domain.di
 
 @Suppress("unused")
 open class CoreProvider {
-    companion object CoreProperties {
-        var properties: Map<String, String>? = null
+    object CoreProviderProperty {
+        const val PRINT_LOGS = "PRINT_LOGS"
     }
 
-    @Suppress("SwallowedException")
     inline fun <reified T> getPropertyOrNull(key: String): T? {
         return try {
             val value = properties?.getValue(key)
@@ -17,16 +16,12 @@ open class CoreProvider {
                 Boolean::class -> value?.toBoolean()
                 else -> null
             } as T?
-        } catch (exception: NoSuchElementException) {
-            null
-        } catch (exception: NumberFormatException) {
-            null
-        } catch (exception: IllegalArgumentException) {
+        } catch (_: Exception) {
             null
         }
     }
 
-    object CoreProviderProperty {
-        const val PRINT_LOGS = "PRINT_LOGS"
+    companion object CoreProperties {
+        var properties: Map<String, String>? = null
     }
 }
