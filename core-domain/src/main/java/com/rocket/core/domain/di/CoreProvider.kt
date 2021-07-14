@@ -11,9 +11,9 @@ open class CoreProvider {
             val value = properties?.getValue(key)
             when (T::class) {
                 String::class -> value ?: ""
-                Int::class -> value?.toInt()
-                Long::class -> value?.toLong()
-                Boolean::class -> value?.toBoolean()
+                Int::class -> value as? Int
+                Long::class -> value as? Long
+                Boolean::class -> value as? Boolean
                 else -> null
             } as T?
         } catch (_: Exception) {
@@ -22,6 +22,6 @@ open class CoreProvider {
     }
 
     companion object CoreProperties {
-        var properties: Map<String, String>? = null
+        var properties: Map<String, Any>? = null
     }
 }
