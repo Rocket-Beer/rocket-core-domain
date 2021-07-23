@@ -11,12 +11,9 @@ sealed class Either<out L, out R> {
 
     fun swap(): Either<R, L> = fold({ Right(it) }, { Left(it) })
 
-    fun <C> map(f: (R) -> C): Either<L, C> = flatMap { Right(f(it)) }
+    fun <C> map(f: (R) -> C): Either<L, C> = fold({ Left(it) }, { Right(f(it)) })
 
-    fun <C> flatMap(f: (R) -> Right<C>): Either<L, C> = when (this) {
-        is Left -> this
-        is Right -> f(r)
-    }
+    fun <C> mapLeft(f: (L) -> C): Either<C, R> = fold({ Left(f(it)) }, { Right(it) })
 
     class Left<out L> constructor(val l: L) : Either<L, Nothing>() {
         override fun isLeft(): Boolean = true
