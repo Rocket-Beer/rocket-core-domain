@@ -10,11 +10,11 @@ java {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.20")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.3")
     testImplementation("com.google.truth:truth:1.1.3")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.20")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.21")
     testImplementation("io.mockk:mockk:1.12.0")
 }
