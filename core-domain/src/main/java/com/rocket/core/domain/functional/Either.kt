@@ -15,12 +15,12 @@ sealed class Either<out L, out R> {
 
     fun <C> mapLeft(f: (L) -> C): Either<C, R> = fold({ Left(f(it)) }, { Right(it) })
 
-    class Left<out L> constructor(val l: L) : Either<L, Nothing>() {
+    data class Left<out L> constructor(val l: L) : Either<L, Nothing>() {
         override fun isLeft(): Boolean = true
         override fun isRight(): Boolean = false
     }
 
-    class Right<out R> constructor(val r: R) : Either<Nothing, R>() {
+    data class Right<out R> constructor(val r: R) : Either<Nothing, R>() {
         override fun isLeft(): Boolean = false
         override fun isRight(): Boolean = true
     }
