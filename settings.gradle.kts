@@ -1,2 +1,2 @@
 rootProject.name = "Rocket Core - Domain"
-include ':core-domain'
+include(":core-domain")
