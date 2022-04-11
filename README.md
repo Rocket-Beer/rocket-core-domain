@@ -40,7 +40,7 @@ Use cases should be entry params object to manage request data.
 #### Failure
 Class to manage errors
 
-#####UseCase example
+##### UseCase example
 ~~~
 class MyUseCase (
     private val repository: MyRepository,
