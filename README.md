@@ -4,7 +4,7 @@ Core library for domain layer
 ## Preconditions
 Conect to repository with GitHub credentials located in "local.properties" archive and config maven properties in "settings.gradle"
 
-local.proterties has to contain:
+local.properties has to contain:
 > github.username=*******  
 > github.token=*********************
 
