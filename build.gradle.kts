@@ -26,6 +26,9 @@ subprojects {
     apply(plugin = "rocket-plugin")
 }
 
+println("\n********** Sonar configuration for all projects **********")
+apply(plugin = "sonar.plugin")
+
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
